@@ -1,0 +1,2 @@
+class UserparamController < ApplicationController
+end

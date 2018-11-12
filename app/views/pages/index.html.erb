@@ -1,0 +1,20 @@
+<h1>My site</h1>
+<p>This is my site</p>
+
+<%= link_to "Login", new_user_session_path %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% if !current_user.nil? %>
+	<%= link_to "Profile" %>
+<% end %>
+<hr>
+<%= link_to "Create new product", new_product_path %>
+<% if @posts == [] %>
+	<p>Create new product</p>
+	<% else %>
+		<% @products.each do |product|%>
+		<p>User <%= post.user.email %> write: %>
+		<b><%= product.title %></b><br />
+		<%= product.body %></p>
+		<p><%= link_to "Read More", product_path(post.id) %></p>
+	<% end %>
+<% end %>
